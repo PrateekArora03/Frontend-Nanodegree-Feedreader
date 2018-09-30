@@ -72,11 +72,12 @@ $(function() {
           * clicked and does it hide when clicked again.
           */
          it('Toggles Hide/Show',function(){
-              const menu = document.querySelector('.menu-icon-link');
-              menu.click();
-              expect(body.classList.contains('menu-hidden')).toBe(false);
-              menu.click();
-              expect(body.classList.contains('menu-hidden')).toBe(true);
+            const body = document.querySelector('body');
+            const menu = document.querySelector('.menu-icon-link');
+            menu.click();
+            expect(body.classList.contains('menu-hidden')).toBe(false);
+            menu.click();
+            expect(body.classList.contains('menu-hidden')).toBe(true);
          });
         });
 
@@ -93,44 +94,32 @@ $(function() {
          * the use of Jasmine's beforeEach and asynchronous done() function.
          */
         it('loadFeed single entry checker',function(){
-            const feed = document.querySelector('.feed');
-            expect(feed.childElementCount).toBeGreaterThan(0);
+            expect($('.feed .entry').length).toBeGreaterThan(0);
         });
     });
 
     /* TODO: Write a new test suite named "New Feed Selection" */
     describe('New Feed Selection', function() {
-	    var firstFeed, secondFeed;
-        
-        // Ensures that the new feed is loaded via the loadFeed function
+
+        /* TODO: Write a test that ensures when a new feed is loaded
+         * by the loadFeed function that the content actually changes.
+         * Remember, loadFeed() is asynchronous.
+         */
+	    var oldFeed, newFeed;
 		beforeEach(function(done) {
-            loadFeed(1, function() {
-
-                // Tests if first feed is loaded
-                console.log('First feed loaded!')
-
-                // Loads first entry and checks
-                firstFeed = $('.feed').html();
-                loadFeed(2, function() {
-
-                    // Tests if second feed is loaded
-                    console.log('Second feed loaded!')
-                    done();
+            loadFeed(0, function() {
+                
+                // Test for Old feed
+                oldFeed = $('.feed').html();
+                loadFeed(1, function() {
+                    done(); // test for new feed
                 });
             });        
          });
-		
-		afterEach(function() {
-            loadFeed(0);
-        });
 
-        // Tests to see if two entries are not equal
-		it('checks if two feeds are different', function() {
-
-            // Checks second feed
-            secondFeed = $('.feed').html();
-            expect(firstFeed).not.toEqual(secondFeed);
+		it('Check content changes for News feed Loading', function() {
+            newFeed = $('.feed').html();
+            expect(oldFeed).not.toEqual(newFeed);
         }); 
 	});
-
 }());
