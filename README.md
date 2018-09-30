@@ -33,3 +33,8 @@ Tests that are **green** have passed and **red** have failed. **That's called Re
 ## How to launch this project ?
 1. Download this project & open in the browser.
 2. scroll down and check the jasmine specs test.
+
+_**check live version [feed test](https://prarora98.github.io/Frontend-Nanodegree-Feedreader/)**_
+
+
+![Feed Reader Test](https://github.com/prarora98/Frontend-Nanodegree-Feedreader/blob/master/shot.png)
