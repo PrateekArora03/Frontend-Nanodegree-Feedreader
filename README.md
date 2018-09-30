@@ -33,6 +33,3 @@ Tests that are **green** have passed and **red** have failed. **That's called Re
 ## How to launch this project ?
 1. Download this project & open in the browser.
 2. scroll down and check the jasmine specs test.
-
-### Author
-Prateek Arora
