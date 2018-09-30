@@ -30,7 +30,9 @@ Tests that are **green** have passed and **red** have failed. **That's called Re
 7. tests for ensure that new content is loaded by loadFeed().
 
 
-_**check live version [feed test](https://#)**_
+## How to launch this project ?
+1. Download this project & open in the browser.
+2. scroll down and check the jasmine specs test.
 
-
-![Feed Reader Test](#)
+### Author
+Prateek Arora
